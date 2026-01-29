@@ -1,0 +1,44 @@
+{
+  "name": "@bento/aws-durable-directives",
+  "version": "0.1.0",
+  "description": "AWS Durable Functions directives - SWC plugin, runtime, and esbuild integration",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./client": {
+      "import": "./dist/client.js",
+      "types": "./dist/client.d.ts"
+    },
+    "./runtime": {
+      "import": "./dist/runtime.js",
+      "types": "./dist/runtime.d.ts"
+    },
+    "./esbuild": {
+      "import": "./dist/esbuild-plugin.js",
+      "types": "./dist/esbuild-plugin.d.ts"
+    },
+    "./plugin": "./wasm/plugin.wasm"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'No tests yet'"
+  },
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.600.0",
+    "@aws-sdk/client-sfn": "^3.600.0",
+    "@swc/core": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.1.0",
+    "esbuild": "^0.21.0",
+    "typescript": "^5.5.0"
+  },
+  "files": [
+    "dist",
+    "wasm"
+  ]
+}

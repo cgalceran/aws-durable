@@ -1,0 +1,26 @@
+[package]
+name = "swc-plugin-aws-durable"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+swc_core = { version = "56", features = [
+  "ecma_plugin_transform",
+  "ecma_ast",
+  "ecma_visit",
+  "ecma_utils",
+  "common",
+] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+swc_core = { version = "56", features = [
+  "testing_transform",
+  "ecma_parser",
+  "ecma_codegen",
+] }
+testing = "19"
