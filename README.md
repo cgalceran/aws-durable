@@ -153,45 +153,6 @@ esbuild.build({
 | `packageName` | `"@cgalceran/aws-durable"` | The runtime package import path |
 | `envPrefix` | `"WORKFLOW_"` | Prefix for environment variables in client mode descriptors |
 
-## Why Rust?
-
-SWC plugins must be compiled to WebAssembly (WASM). SWC chose this architecture so plugins run in a sandboxed, portable environment at near-native speed without blocking the main thread or requiring native Node addons.
-
-Rust is the natural choice for this because:
-
-- **SWC itself is written in Rust.** The plugin API (`swc_core`) exposes Rust types for the AST. Writing the plugin in Rust means direct access to the same AST types SWC uses internally — no serialization boundary, no impedance mismatch.
-- **Rust compiles to WASM natively.** The `wasm32-wasip1` target is a first-class compilation target in `rustc`. No extra toolchains or transpilation steps.
-- **Performance.** AST traversal and transformation on every file in a build benefits from compiled-language speed. The two-pass architecture (collect then transform) runs in microseconds per file.
-
-## Packages
-
-| Package | Language | Description |
-|---------|----------|-------------|
-| `packages/swc-plugin-aws-durable` | Rust | SWC plugin compiled to WASM — the compiler |
-| `packages/aws-durable-directives` | TypeScript | npm package with type stubs, runtime, and esbuild plugin |
-
-## Development
-
-```bash
-# Install Rust + WASM target
-rustup target add wasm32-wasip1
-
-# Run plugin tests
-cd packages/swc-plugin-aws-durable
-cargo test
-
-# Build WASM
-cargo build --target wasm32-wasip1 --release
-
-# Copy to npm package
-cp target/wasm32-wasip1/release/swc_plugin_aws_durable.wasm \
-   ../aws-durable-directives/wasm/plugin.wasm
-
-# Build TypeScript
-cd ../aws-durable-directives
-pnpm build
-```
-
 ## License
 
 MIT
