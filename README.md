@@ -1,6 +1,8 @@
 # aws-durable
 
-An SWC compiler plugin that transforms simple JavaScript functions into AWS Lambda durable workflows using directives.
+This is a Speedy Web Compiler SWC plugin that transforms simple JS functions into the new AWS Lambda durable workflows using directives. I wanted to use directives while working on workflows just like vercel created their WDK, the only difference is that vercel's backend is distributed by default so their rust transformation convert JS functions into endpoints. In this case is different, the execution happens within the lambda so it's simpler, except on the client.
+
+NOTE= Still a experimental package.
 
 Write workflow logic as plain async functions with `"use workflow"` and `"use step"` directives. The compiler handles the rest — wrapping your code in durable execution, checkpointing steps, and wiring up Lambda invocations.
 
