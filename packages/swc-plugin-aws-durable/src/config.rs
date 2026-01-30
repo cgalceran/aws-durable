@@ -33,7 +33,7 @@ fn default_mode() -> TransformMode {
 }
 
 fn default_package_name() -> String {
-    "@bento/aws-durable".to_string()
+    "@cgalceran/aws-durable".to_string()
 }
 
 fn default_env_prefix() -> String {

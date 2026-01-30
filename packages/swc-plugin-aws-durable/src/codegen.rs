@@ -1,7 +1,7 @@
 use swc_core::common::DUMMY_SP;
 use swc_core::ecma::ast::*;
 
-/// Create: `import { withDurableExecution } from "@bento/aws-durable"`
+/// Create: `import { withDurableExecution } from "@cgalceran/aws-durable"`
 pub fn create_sdk_import(package_name: &str) -> ModuleItem {
     ModuleItem::ModuleDecl(ModuleDecl::Import(ImportDecl {
         span: DUMMY_SP,

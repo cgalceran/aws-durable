@@ -1,4 +1,4 @@
-import { withDurableExecution } from "@bento/aws-durable";
+import { withDurableExecution } from "@cgalceran/aws-durable";
 import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
 export const signupWorkflow = withDurableExecution(async (event, ctx)=>{
     const email = await ctx.step("validateEmail", async ()=>{

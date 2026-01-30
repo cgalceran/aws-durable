@@ -1,5 +1,5 @@
 {
-  "name": "@bento/aws-durable-directives",
+  "name": "@cgalceran/aws-durable-directives",
   "version": "0.1.0",
   "description": "AWS Durable Functions directives - SWC plugin, runtime, and esbuild integration",
   "main": "dist/index.js",

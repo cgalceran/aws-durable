@@ -89,7 +89,7 @@ export async function myWorkflow(input) {
     let module = transform_workflow(input);
 
     // Should have SDK import
-    assert!(has_import(&module, "@bento/aws-durable"));
+    assert!(has_import(&module, "@cgalceran/aws-durable"));
 
     // Should have exported handler
     assert!(has_export_named(&module, "myWorkflow"));
@@ -109,7 +109,7 @@ export function normalFunction(input) {
     let module = transform_workflow(input);
 
     // Should NOT have SDK import (no workflow detected)
-    assert!(!has_import(&module, "@bento/aws-durable"));
+    assert!(!has_import(&module, "@cgalceran/aws-durable"));
 
     // Module should be unchanged (1 item)
     assert_eq!(module.body.len(), 1);
@@ -144,7 +144,7 @@ export async function signupWorkflow(input) {
     assert!(!has_validate_fn, "Step function should be removed");
 
     // Should have SDK import
-    assert!(has_import(&module, "@bento/aws-durable"));
+    assert!(has_import(&module, "@cgalceran/aws-durable"));
 }
 
 #[test]
@@ -176,6 +176,6 @@ export async function delayedWorkflow(input) {
     let module = transform_workflow(input);
 
     // Should have SDK import but not Lambda import
-    assert!(has_import(&module, "@bento/aws-durable"));
+    assert!(has_import(&module, "@cgalceran/aws-durable"));
     assert!(!has_import(&module, "@aws-sdk/client-lambda"));
 }

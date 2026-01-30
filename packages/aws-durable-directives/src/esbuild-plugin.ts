@@ -15,7 +15,7 @@ export interface DurablePluginOptions {
   workflowPatterns?: string[];
   /** Glob patterns for client files (transformed in client mode) */
   clientPatterns?: string[];
-  /** Package name for SDK import. Default: "@bento/aws-durable" */
+  /** Package name for SDK import. Default: "@cgalceran/aws-durable" */
   packageName?: string;
   /** Environment variable prefix for workflow function names. Default: "WORKFLOW_" */
   envPrefix?: string;
@@ -59,7 +59,7 @@ export function durablePlugin(options: DurablePluginOptions = {}): {
   const {
     workflowPatterns = ["**/workflows/**", "**/*.workflow.*"],
     clientPatterns = ["**/handlers/**", "**/*.handler.*", "**/api/**"],
-    packageName = "@bento/aws-durable",
+    packageName = "@cgalceran/aws-durable",
     envPrefix = "WORKFLOW_",
   } = options;
 

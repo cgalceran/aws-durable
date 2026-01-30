@@ -1,5 +1,5 @@
 {
-  "name": "@bento/aws-durable-monorepo",
+  "name": "@cgalceran/aws-durable-monorepo",
   "private": true,
   "packageManager": "pnpm@10.10.0",
   "scripts": {
